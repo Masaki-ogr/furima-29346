@@ -1,24 +1,52 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column           | Type   | Options     | 
+| ---------------- | ------ | ----------- |
+| nickname         | string | null: false |
+| email            | string | null: false |
+| password         | string | null: false |
+| family_name      | string | null: false |
+| first_name       | string | null: false |
+| family_name kana | string | null: false |
+| first_name kana  | string | null: false |
+| birth_year       | string | null: false |
+| birth_month      | string | null: false |
+| birth_day        | string | null: false |
 
-* Ruby version
+### Association
+- has_many :items
 
-* System dependencies
+## items テーブル
 
-* Configuration
+| Column           | Type   | Options     |
+| ---------------- | ------ | ----------- |
+| name             | string | null: false |
+| description      | text   | null: false |
+| category         | string | null: false |
+| condition        | string | null: false |
+| shipping_charges | string | null: false |
+| shipping_area    | string | null: false |
+| days             | string | null: false |
+| user_id          | string | null: false |
+| image            | string | null: false |
 
-* Database creation
+### Association
+- belongs_to :user
 
-* Database initialization
+## purchasers テーブル
 
-* How to run the test suite
+| Column        | Type      | Options     |
+| ------------- | --------- | ----------- |
+| user_id       | reference | null: false |
+| zip_code      | integer   | null: false |
+| prefecture    | string    | null: false |
+| municipality  | string    | null: false |
+| address       | string    | null: false |
+| building_name | string    | null: false |
+| phone_number  | string    | null: false |
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+- belongs_to :user
+- belongs_to :item
