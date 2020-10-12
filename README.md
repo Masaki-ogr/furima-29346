@@ -31,8 +31,21 @@
 
 ### Association
 - belongs_to :user
+- has_one :buyer
 
-## purchasers テーブル
+## buyers テーブル
+
+| Column      | Type    | Options                        |
+| ----------- | ------- |--------------------------------|
+| user_id     | integer | null: false, foreign_key: true |
+| item_id     | integer | null: false, foreign_key: true |
+| delivery_id | integer | null: false, foreign_key: true |
+
+### Association
+- belongs_to :item
+- has_one :delivery
+
+## delivery テーブル
 
 | Column        | Type      | Options                        |
 | ------------- | --------- | ------------------------------ |
@@ -42,3 +55,6 @@
 | address       | string    | null: false                    |
 | building_name | string    |                                |
 | phone_number  | string    | null: false                    |
+
+### Association
+- belongs_to :buyer
