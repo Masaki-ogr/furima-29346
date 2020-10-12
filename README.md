@@ -15,20 +15,20 @@
 
 ### Association
 - has_many :items
-- has_one :buyer
+- has_many :buyer
 
 ## items テーブル
 
-| Column           | Type    | Options                        |
-| ---------------- | ------- | ------------------------------ |
-| name             | string  | null: false                    |
-| description      | text    | null: false                    |
-| category         | integer | null: false                    |
-| condition        | integer | null: false                    |
-| shipping_charges | integer | null: false                    |
-| shipping_area    | integer | null: false                    |
-| days_id          | integer | null: false                    |
-| user_id          | integer | null: false, foreign_key: true |
+| Column              | Type    | Options                        |
+| ------------------- | ------- | ------------------------------ |
+| name                | string  | null: false                    |
+| description         | text    | null: false                    |
+| category_id         | integer | null: false                    |
+| condition_id        | integer | null: false                    |
+| shipping_charges_id | integer | null: false                    |
+| shipping_area_id    | integer | null: false                    |
+| days_id             | integer | null: false                    |
+| user_id             | integer | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
