@@ -15,6 +15,7 @@
 
 ### Association
 - has_many :items
+- has_one :buyer
 
 ## items テーブル
 
@@ -26,7 +27,7 @@
 | condition        | integer | null: false                    |
 | shipping_charges | integer | null: false                    |
 | shipping_area    | integer | null: false                    |
-| days             | integer | null: false                    |
+| days_id          | integer | null: false                    |
 | user_id          | integer | null: false, foreign_key: true |
 
 ### Association
@@ -39,10 +40,10 @@
 | ----------- | ------- |--------------------------------|
 | user_id     | integer | null: false, foreign_key: true |
 | item_id     | integer | null: false, foreign_key: true |
-| delivery_id | integer | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :item
+- belongs_to :user
 - has_one :delivery
 
 ## delivery テーブル
@@ -50,11 +51,12 @@
 | Column        | Type      | Options                        |
 | ------------- | --------- | ------------------------------ |
 | zip_code      | string    | null: false                    |
-| prefecture    | integer   | null: false                    |
+| prefecture_id | integer   | null: false                    |
 | municipality  | string    | null: false                    |
 | address       | string    | null: false                    |
 | building_name | string    |                                |
 | phone_number  | string    | null: false                    |
+| buyer_id      | integer   | null: false, foreign_key:true  |
 
 ### Association
 - belongs_to :buyer
