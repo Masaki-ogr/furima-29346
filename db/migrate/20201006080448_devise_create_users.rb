@@ -4,14 +4,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string :nickname,           null: false
-      t.string :email,              null: false, default: ""
-      t.string :password,           null: false, default: ""
-      t.string :family_name,        null: false
-      t.string :first_name,         mull: false
-      t.string :family_name_kana,   null: false
-      t.string :first_name_kana,    null: false
-      t.date   :birth,              null: false
+      t.string :nickname,                     null: false
+      t.string :email,                        null: false, default: ""
+      t.string :encrypted_password,           null: false, default: ""
+      t.string :family_name,                  null: false
+      t.string :first_name,                   null: false
+      t.string :family_name_kana,             null: false
+      t.string :first_name_kana,              null: false
+      t.date   :birth,                        null: false
 
 
       ## Recoverable
@@ -19,7 +19,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.datetime :reset_password_sent_at
 
       ## Rememberable
-      t.datetime :remember_created_atユーザー管理機能を実装する
+      # t.datetime :remember_created_atユーザー管理機能を実装する
 
 
       ## Trackable
