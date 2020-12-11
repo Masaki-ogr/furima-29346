@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, length: { maximum: 40 }
  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
+  validates :email, format: { with: VALID_EMAIL_REGEX }
  PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i
   validates :password, format: { with: PASSWORD_REGEX }
  NAME_REGEX = /\A[ぁ-んァ-ヶ一-龥々]+\z/

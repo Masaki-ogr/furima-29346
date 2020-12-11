@@ -78,13 +78,11 @@ describe User do
       end
       it "family_nameが全角でないと登録できない" do
         @user.family_name = "Yamada"
-        @user.family_name.match(/\A[ぁ-んァ-ヶ一-龥々]+\z/)
         @user.valid?
         expect(@user.errors.full_messages).to include( "Family name is invalid" )
       end
       it "first_nameが全角でないと登録できない" do
         @user.first_name = "Taro"
-        @user.first_name.match(/\A[ぁ-んァ-ヶ一-龥々]+\z/)
         @user.valid?
         expect(@user.errors.full_messages).to include( "First name is invalid" )
       end
@@ -100,13 +98,11 @@ describe User do
       end
       it "family_name_kanaが全角カタカナでないと登録できない" do
         @user.family_name_kana = "Yamada"
-        @user.family_name_kana.match(/\A[ァ-ヶー－]+\z/)
         @user.valid?
         expect(@user.errors.full_messages).to include( "Family name kana is invalid" )
       end
       it "first_name_kanaが全角カタカナでないと登録できない" do
         @user.first_name_kana = "Taro"
-        @user.first_name_kana.match(/\A[ァ-ヶー－]+\z/)
         @user.valid?
         expect(@user.errors.full_messages).to include( "First name kana is invalid" )
       end
