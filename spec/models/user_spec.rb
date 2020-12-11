@@ -46,6 +46,12 @@ describe User do
         @user.valid?
         expect(@user.errors.full_messages).to include( "Password is too short (minimum is 6 characters)" )
       end
+      it "passwordとpassword_confirmationは値が同じでないと登録出来ない" do
+        @user.password = "aaa111"
+        @user.password_confirmation = "bbb222"
+        @user.valid?
+        expect(@user.errors.full_messages).to include( "Password confirmation doesn't match Password" )
+      end
       it "半角英字のみでは登録できない" do
         @user.password = "password"
         @user.valid?
